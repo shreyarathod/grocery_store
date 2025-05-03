@@ -18,7 +18,7 @@ export default function Splinecomp() {
           <div className="flex items-center space-x-3">
             <ShoppingCart className="h-6 w-6 hover:text-green-200 cursor-pointer" />
             <div className="flex space-x-2">
-              <button className="bg-white text-green-600 px-4 py-1 rounded-md hover:bg-green-100 transition duration-300 " onClick={()=>navigate('/auth')}>
+              <button className="bg-white text-green-600 px-4 py-1 rounded-md hover:bg-green-100 transition duration-300 " onClick={()=>navigate('/')}>
                 Login
               </button>
              
@@ -38,7 +38,7 @@ export default function Splinecomp() {
               Shop organic produce, everyday essentials, and more with convenient delivery options.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium flex items-center transition duration-300" onClick={()=>navigate('/auth')}>
+              <button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium flex items-center transition duration-300" onClick={()=>navigate('/')}>
                 Shop Now <ChevronRight className="ml-1 h-5 w-5" />
               </button>
               <button className="border border-green-600 text-green-600 hover:bg-green-50 px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium transition duration-300">
