@@ -2,7 +2,7 @@
   "rewrites": [
       { 
           "source": "/api/:path*",
-          "destination": "https://travel-system-umber.vercel.app/api/:path*"
+          "destination": "https://grocery-backend-se-q7rq.vercel.app/api/:path*"
       },
       {
           "source": "/(.*)",

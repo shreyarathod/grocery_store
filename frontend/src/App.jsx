@@ -5,6 +5,7 @@ import './index.css'
 import HomeStore from './screens/HomeStore';
 import CustomerHomepage from './screens/HomeCust';
 import OrderPage from './screens/OrderPage';
+import Splinecomp from './components/ui/spline';
 function App() {
 
 
@@ -13,7 +14,9 @@ function App() {
     {/* <Button>Click me!!</Button> */}
     <Router>
       <Routes>
+      <Route path="/spline" element={<Splinecomp/>} />
         <Route path="/" element={<AuthPage/>} />
+        
         <Route path="/homestore" element={<HomeStore/>}/>
         <Route path="/homecust" element={<CustomerHomepage/>}/>
         <Route path="/orders"  element={<OrderPage/>}/> 
