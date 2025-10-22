@@ -1,0 +1,64 @@
+yaml
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install backend dependencies
+        working-directory: ./FreshMart-main/backend
+        run: npm install
+
+      - name: Run backend tests (if any)
+        working-directory: ./FreshMart-main/backend
+        run: echo "No backend tests configured"
+
+      - name: Install frontend dependencies
+        working-directory: ./FreshMart-main/frontend
+        run: npm install
+
+      - name: Build frontend
+        working-directory: ./FreshMart-main/frontend
+        run: npm run build
+
+      - name: Run frontend tests (if any)
+        working-directory: ./FreshMart-main/frontend
+        run: echo "No frontend tests configured"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required. Obtain from https://vercel.com/account/tokens
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} # Required. Obtain from Vercel settings
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Required. Obtain from Vercel settings
+          working-directory: ./FreshMart-main/frontend # Optional.
+          vercel-args: '--prod' # Optional.
+```
