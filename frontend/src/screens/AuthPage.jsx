@@ -58,9 +58,9 @@ const AuthSystem = () => {
 
       // Redirect based on the selected role
       if (formData.role === 'customer') {
-        navigate('./HomeCust'); // Redirect to customer dashboard
+        navigate('/homecust'); // Changed from './HomeCust'
       } else if (formData.role === 'storeOwner') {
-        navigate('./HomeStore'); // Redirect to store owner dashboard
+        navigate('/homestore'); // Changed from './HomeStore'
       } else {
         throw new Error('Invalid role selected');
       }
