@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./FreshMart-main/frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./FreshMart-main/frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    stdin_open: true # For interactive development
+    tty: true
+
+  backend:
+    build:
+      context: ./FreshMart-main/backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./FreshMart-main/backend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    working_dir: /app
+    command: npm run dev # Or your backend start command
+    depends_on:
+      # Add any database dependencies here if applicable
+      # - database
+      []
+    # Example for database dependency
+    # database:
+    #   image: postgres:14
+    #   ports:
+    #     - "5432:5432"
+    #   environment:
+    #     POSTGRES_USER: your_user
+    #     POSTGRES_PASSWORD: your_password
+    #     POSTGRES_DB: your_db

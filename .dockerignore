@@ -1,0 +1,41 @@
+node_modules
+.env
+build
+dist
+.DS_Store
+.idea
+.vscode
+*.log
+tmp
+tmp/*
+**/node_modules
+**/build
+**/dist
+.next
+out
+.vercel
+
+# macOS
+__MACOSX/
+._*
+.Trash
+
+# Dependencies directory
+/FreshMart-main/backend/node_modules
+/FreshMart-main/frontend/node_modules
+
+# Vercel
+vercel.json
+**/vercel.json
+
+# Ignore macOS artifacts in root
+._FreshMart-main
+._.gitignore
+._backend
+._frontend
+._README.md
+
+# Ignore root level dependencies
+/node_modules
+/package-lock.json
+/package.json
